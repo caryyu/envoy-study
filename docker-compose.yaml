@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  envoy:
+    image: envoyproxy/envoy:v1.13.1
+    volumes:
+      - ./config:/config/
+    ports:
+      - "8030:8030"
+      - "8080:8080"
+    command:
+    - -c /config/envoy.yaml
